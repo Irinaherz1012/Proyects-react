@@ -1,29 +1,45 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import './ProductList.css';
 
 const ProductList = () => {
-  const ProductList = () => {
-    const [productos, setProductos ] = useState([]);
-    const [error, setError] = useState(null)
-    
-    useEffect(() => {
-      const fecthProductos = async () => {
-        try {
-          const response = await fetch('https://fakestoreapi.com/products');
-          if (!response.ok) {
-            throw new Error('Error al obtener los productos');
-          }
-          const data = await response.json();
-          setProductos(data)
-        } catch (err) {
-             setError(err.message)
+  // Estado para guardar los platos
+  const [platos, setPlatos] = useState([]);
+  const [error, setError] = useState(null);
+  const [orden, setOrden] = useState('relevante');
+
+  useEffect(() => {
+    const fetchPlatos = async () => {
+      try {
+        const response = await fetch(
+          'https://free-food-menus-api-two.vercel.app/best-foods' 
+        );
+        if (!response.ok) {
+          throw new Error('Error al obtener los platos');
         }
+        const data = await response.json();
+        console.log('Datos de Platos recibidos:', data); // Para ver en consola
+        setPlatos(data);
+      } catch (err) {
+        setError(err.message);
+      }
+    };
 
-     }
-     fecthProductos();
-    }, []);
+    fetchPlatos();
+  }, []);
 
+  const handleoOrdenchange = (e) => {
+    setOrden(e.target.value)
   }
+
+  const platosOrdenados = [...platos].sort((a,b) => {
+    if (orden === 'Precio: Menor a mayor'){
+      return a.price - b.price
+    } if (orden === 'Precio: Mayor a menor') {
+      return b.price - a.price
+    }
+    return 0;
+  });
+
   return (
     <section className="main-content">
       <aside className="filters">
@@ -31,58 +47,27 @@ const ProductList = () => {
         <div className="filter-category">
           <h3>Categorías</h3>
           <label>
-            <input type="checkbos"/>
-            <span>Hombres</span>
+            <input type="checkbox" />
+            <span>Opción 1</span>
           </label>
           <label>
-            <input type="checkbos"/>
-            <span>mujeres</span>
+            <input type="checkbox" />
+            <span>Opción 2</span>
           </label>
           <label>
-            <input type="checkbos"/>
-            <span>niños</span>
+            <input type="checkbox" />
+            <span>Opción 3</span>
           </label>
         </div>
+      </aside>
 
-        <div className="filter-category">
-          <h3>Categorías</h3>
-          <label>
-            <input type="checkbos"/>
-            <span>Hombres</span>
-          </label>
-          <label>
-            <input type="checkbos"/>
-            <span>mujeres</span>
-          </label>
-          <label>
-            <input type="checkbos"/>
-            <span>niños</span>
-          </label>
-        </div>
-
-        <div className="filter-category">
-          <h3>tipo de producto</h3>
-          <label>
-            <input type="checkbos"/>
-            <span>Hombres</span>
-          </label>
-          <label>
-            <input type="checkbos"/>
-            <span>mujeres</span>
-          </label>
-          <label>
-            <input type="checkbos"/>
-            <span>niños</span>
-          </label>
-        </div>
-      </aside> 
       <main className="collections">
         <div className="options">
-          <h2>TODAS LAS COLECCIONES</h2>
+          <h2>TODOS LOS PLATOS</h2>
           <div className="sort-options">
             <label>
               Ordenar por:
-              <select>
+              <select on onChange={handleoOrdenchange} value={orden}>
                 <option>Relevante</option>
                 <option>Precio: Menor a mayor</option>
                 <option>Precio: Mayor a menor</option>
@@ -94,26 +79,25 @@ const ProductList = () => {
         <div className="products">
           {error ? (
             <p className="error-message">{error}</p>
-          ):(
-            productos.map((producto) => (
-              <div className="product-card" key= {producto.id}>
-                <img src={producto.image} 
-                 alt={producto.image}
-                 className="product-image"/>
-
-                 <h3>{producto.nombre}</h3>
-                 <p>{producto.precio}</p>
+          ) : (
+            platosOrdenados.map((plato) => (
+              <div className="product-card" key={plato.id}>
+                <img
+                  src={plato.img}
+                  alt={plato.name}
+                  className="product-image"
+                />
+                <h3>{plato.name}</h3>
+                <p>{plato.dsc}</p>
+                <p>Precio: ${plato.price}</p>
+                <p>Ubicación: {plato.country}</p>
               </div>
             ))
           )}
-
         </div>
-
-
       </main>
+    </section>
+  );
+};
 
-      </section>
-  )
-}
-
-export default ProductList
+export default ProductList;

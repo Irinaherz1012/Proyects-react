@@ -177,4 +177,110 @@ input[type="checkbox"]{
 .product-card {
     padding: 8px;
 }
- 
+
+/* --- Contenedor principal --- */
+.main-content {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* --- Aside de filtros --- */
+.filters {
+  flex: 1;
+  background: #f7f7f7;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.filters h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.filter-category {
+  margin-bottom: 1.5rem;
+}
+
+.filter-category h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.filter-category label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
+/* --- Área de colecciones --- */
+.collections {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Barra superior de opciones --- */
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.sort-options select {
+  padding: 0.3rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+/* --- Grid de productos/platos --- */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+/* --- Card de cada producto/plato --- */
+.product-card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+}
+
+/* --- Imagen del producto/plato --- */
+.product-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 0.8rem;
+}
+
+/* --- Texto del producto/plato --- */
+.product-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.product-card p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0.2rem 0;
+}
+
+/* --- Mensaje de error --- */
+.error-message {
+  color: #c00;
+  font-weight: bold;
+  text-align: center;
+  grid-column: 1/-1;
+}
