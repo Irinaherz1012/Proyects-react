@@ -10,12 +10,12 @@
 .logo{
     font-size: 24px;
     font-weight: bold;
-    color: #78C841;
+    color: #08CB00;
     cursor: pointer;
 }
 
 .logo span{
-    color: #000;
+    color: #000000;
 }
 
 .navbar{
@@ -38,7 +38,7 @@
 }
 
 .navbar-links a:hover{
-    color: #78C841;
+    color: #08CB00;
 }
 
 .icons {
@@ -69,7 +69,7 @@
 
 .search-button:hover,
 .icon-button:hover{
-    color: #78C841;
+    color: #08CB00;
 }
 
 .icon-button{
@@ -89,6 +89,6 @@
     align-items: center;
     font-size: 10px;
     background-color: red;
-    color: #fff;
-    background-color: #78C841;
+    color: #EEEEEE;
+    background-color: #08CB00
 }

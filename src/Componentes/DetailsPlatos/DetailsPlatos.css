@@ -1,0 +1,137 @@
+.platos-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  color: #333;
+  flex-wrap: wrap;
+}
+
+.platos-details img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.platos-details .img-small {
+  width: 80px;
+  height: 80px;
+}
+
+.platos-info {
+  flex: 1;
+  max-width: 600px;
+}
+
+.platos-info h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.platos-info .price {
+  font-size: 28px;
+  color: #08CB00;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.platos-info .description {
+  font-size: 16px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.size-options {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.size-options button {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #EEEEEE;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 14px;
+}
+
+.size-options button:hover {
+  border-color: #253900;
+  background-color: #eee;
+}
+
+.add-to-cart {
+  padding: 15px 20px;
+  background-color: #08CB00;
+  color: white;
+  border: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.add-to-cart:hover {
+  background-color: #253900;
+}
+
+.platos-info .note{
+    font-size: 14px;
+    margin-top: 20px;
+    line-height: 1.4;
+}
+
+@media (max-width: 1024px) {
+
+  .plato-inf {
+    max-width: 90%;
+  } 
+}
+
+@media (max-width: 768px) {
+  .platos-details {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .platos-info h1 {
+    font-size: 20px;
+  }
+
+  .platos-info .price {
+    font-size: 24px;
+  }
+
+  .platos-info .description {
+    font-size: 14px;
+  }
+
+  .add-to-cart {
+    width: 100%;
+  }
+
+  .size-options button{
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .platos-details img{
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .platos-info .note{
+    font-size: 12px;
+  }
+
+  .size-options {
+    justify-content: center;
+  }
+}

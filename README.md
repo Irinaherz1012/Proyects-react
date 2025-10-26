@@ -1,12 +1,42 @@
-# React + Vite
+# Proyecto React — Resumen
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Descripción breve
+- Aplicación frontend creada con React (plantilla Vite).  
+- Interfaz con componente de navegación (Navbar) y carrito de compra (Cart).  
+- Estilos organizados por componente en `src/Componentes/...`.
 
-Currently, two official plugins are available:
+Cómo ejecutar (Windows)
+1. Abrir PowerShell o Terminal en la carpeta del proyecto:
+   cd "c:\Users\kayli\OneDrive\Desktop\proyectoReact"
+2. Instalar dependencias:
+   npm install
+3. Iniciar servidor de desarrollo (mantener la terminal abierta para live reload):
+   npm run dev
+4. Abrir la URL que muestre la terminal (ej. http://localhost:5173).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Estructura y archivos principales
+- .gitignore  
+  - Excluye `node_modules`, logs, carpetas de build y configuraciones de editores.
 
-## Expanding the ESLint configuration
+- package.json (raíz)  
+  - Scripts típicos: `dev`, `build`, `preview`. Dependencias de React y Vite.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- src/
+  - Componentes/
+    - Navbar/
+      - Navbar.css — estilos del encabezado: logo, links, barra de búsqueda, iconos y contador. Diseño responsive y efectos hover.
+      - Navbar.jsx (o .js) — (componente) controla navegación, búsqueda y accesos rápidos (favicon, carrito, etc.).
+    - Cart/
+      - Cart.css — estilos del carrito: lista de artículos, controles de cantidad, resumen y botón de checkout. Incluye adaptaciones responsive y estilos de resumen/total.
+      - Cart.jsx (o .js) — (componente) muestra los productos añadidos, permite aumentar/disminuir cantidad, eliminar y visualizar total.
+  - App.jsx (o .js)  
+    - Enrutamiento básico / layout global. Renderiza Navbar y rutas/páginas principales.
+  - main.jsx (o index.jsx)  
+    - Punto de entrada que monta la app en el DOM.
+
+Funcionalidades principales
+- Navegación: logo y enlaces para moverse entre secciones. Hover y estilos activos.
+- Búsqueda: input en el Navbar para filtrar o buscar elementos (dependiendo de la implementación).
+- Carrito: lista dinámica de productos, controles de cantidad, eliminación y resumen con total. Botón de checkout con estilos y comportamiento responsive.
+- Estilos: CSS modular por componentes para mantener lógica y diseño separados.
+

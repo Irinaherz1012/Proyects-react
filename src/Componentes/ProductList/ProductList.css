@@ -22,18 +22,18 @@ main.content{
     margin-bottom: 1rem;
 }
 
-.filter-category h3{
+.filter-country h3{
     margin-bottom: 1rem;
     font-size: 16px;
     font-weight: bold;
 }
-.filter-category label{
+.filter-country label{
     display: inline-block;
     position: relative;
     margin-bottom: 10px;
 }
 
-.filter-category span{
+.filter-country span{
     font-size: 14px;
 }
 
@@ -111,7 +111,7 @@ input[type="checkbox"]{
 
 @media (max-width: 1024px){
 
-    .filters-category{
+    .filters-country, .filters-rate{
         display: flex;
         justify-content: space-between;
         margin-bottom: 1rem;
@@ -160,23 +160,32 @@ input[type="checkbox"]{
         width: 100%;
     }
 
-    .filter-category,
+    .filter-country,
     .filter-type{
         width: 100%;
     }
-    .products{
+    .platos{
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 }
-.product-card h3{
+.platos-card h3{
     font-size: 10px;
 }
-.product-card p{
+.platos-card p{
     font-size: 12px;
 }
-.product-card {
+.platos-card {
     padding: 8px;
 }
+
+ .platos-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  background-color: #f2f2f2;
+} 
+
 
 /* --- Contenedor principal --- */
 .main-content {
@@ -199,16 +208,16 @@ input[type="checkbox"]{
   margin-bottom: 1rem;
 }
 
-.filter-category {
+.filter-country {
   margin-bottom: 1.5rem;
 }
 
-.filter-category h3 {
+.filter-country h3 {
   margin-bottom: 0.5rem;
   font-size: 1rem;
 }
 
-.filter-category label {
+.filter-country label {
   display: block;
   margin-bottom: 0.3rem;
   font-size: 0.9rem;
@@ -236,14 +245,14 @@ input[type="checkbox"]{
 }
 
 /* --- Grid de productos/platos --- */
-.products {
+.platos {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 1.5rem;
 }
 
 /* --- Card de cada producto/plato --- */
-.product-card {
+.platos-card {
   background: #ffffff;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -252,12 +261,12 @@ input[type="checkbox"]{
   transition: transform 0.2s ease;
 }
 
-.product-card:hover {
+.platos-card:hover {
   transform: translateY(-4px);
 }
 
 /* --- Imagen del producto/plato --- */
-.product-image {
+.platos-image {
   width: 100%;
   height: 180px;
   object-fit: cover;
@@ -266,12 +275,12 @@ input[type="checkbox"]{
 }
 
 /* --- Texto del producto/plato --- */
-.product-card h3 {
+.platos-card h3 {
   font-size: 1.1rem;
   margin-bottom: 0.3rem;
 }
 
-.product-card p {
+.platos-card p {
   font-size: 0.9rem;
   color: #555;
   margin: 0.2rem 0;
